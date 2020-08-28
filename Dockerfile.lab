@@ -7,3 +7,4 @@ RUN /opt/conda/bin/conda install -c conda-forge pycalphad==0.8.3 espei==0.7.7 nb
     jupyter labextension install nglview-js-widgets --no-build && \
     jupyter labextension install jupyterlab_templates && \
     jupyter serverextension enable --py jupyterlab_templates
+RUN printf "[DEFAULT]\nTOP_LEVEL_DIRS = ${HOME}\nRESOURCE_PATHS = /srv/conda/envs/notebook/share/pyiron" > ${HOME}/.pyiron
