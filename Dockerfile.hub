@@ -1,3 +1,4 @@
 FROM jupyterhub/k8s-hub:0.9.1
+COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
 RUN pip3 install --no-cache-dir jupyterhub-share-link && \
 python3 -m jupyterhub_share_link.generate_keys
