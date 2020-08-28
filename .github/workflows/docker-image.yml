@@ -14,10 +14,10 @@ jobs:
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Build Dockerfile.lab
-        run: GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-8) docker build . --file Dockerfile.lab --tag richardotis/jlab-cloud-pycalphad:$GITHUB_SHA_SHORT
+        run: docker build --file Dockerfile.lab --tag richardotis/jlab-cloud-pycalphad:${GITHUB_SHA::8} .
       - name: Push Dockerfile.lab
-        run: GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-8) docker push richardotis/jlab-cloud-pycalphad:$GITHUB_SHA_SHORT
+        run: docker push richardotis/jlab-cloud-pycalphad:${GITHUB_SHA::8}
       - name: Build Dockerfile.hub
-        run: GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-8) docker build . --file Dockerfile.hub --tag richardotis/jhub-cloud-pycalphad:$GITHUB_SHA_SHORT
+        run: docker build --file Dockerfile.hub --tag richardotis/jhub-cloud-pycalphad:${GITHUB_SHA::8} .
       - name: Push Dockerfile.hub
-        run: GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-8) docker push richardotis/jhub-cloud-pycalphad:$GITHUB_SHA_SHORT
+        run: docker push richardotis/jhub-cloud-pycalphad:${GITHUB_SHA::8}
