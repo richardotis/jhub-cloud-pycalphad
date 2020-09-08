@@ -2,7 +2,4 @@
 FROM jupyter/minimal-notebook:6d42503c684f
 RUN /opt/conda/bin/conda install -c conda-forge pycalphad==0.8.3 espei==0.7.7 nbgitpuller jupyterlab-git seaborn phonopy pymatgen sqsgenerator pyiron==0.3.0 lammps nodejs nglview && \
     python3 -m pip install scheil --no-deps --no-cache-dir && \
-    python3 -m pip install jupyterlab_templates --no-cache-dir && \
-    jupyter labextension install nglview-js-widgets --no-build && \
-    jupyter labextension install jupyterlab_templates && \
-    jupyter serverextension enable --py jupyterlab_templates
+    jupyter labextension install nglview-js-widgets
