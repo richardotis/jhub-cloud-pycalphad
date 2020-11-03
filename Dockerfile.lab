@@ -1,6 +1,6 @@
   
 FROM jupyter/minimal-notebook:6d42503c684f
-RUN /opt/conda/bin/conda install -c conda-forge pycalphad==0.8.3 espei==0.7.7 nbgitpuller jupyterlab-git seaborn phonopy pymatgen sqsgenerator pyiron==0.3.0 lammps nodejs nglview && \
+RUN /opt/conda/bin/conda install -c conda-forge pycalphad==0.8.4 espei==0.7.7 nbgitpuller jupyterlab-git seaborn phonopy pymatgen sqsgenerator pyiron==0.3.9 lammps nodejs nglview && \
     python3 -m pip install scheil --no-deps --no-cache-dir && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
     jupyter labextension install @jupyterlab/toc --no-build && \
